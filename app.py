@@ -6,9 +6,7 @@ THIS_DIR = pathlib.Path(__file__).parent.resolve()
 INTERPRETER = str(THIS_DIR / "interpreter.py")
 
 def _limit_resources():
-    # 100 MB address space
     resource.setrlimit(resource.RLIMIT_AS, (100 * 1024 * 1024, resource.RLIM_INFINITY))
-    # CPU time limit 2 sec
     resource.setrlimit(resource.RLIMIT_CPU, (2, 2))
 
 @app.route('/')
